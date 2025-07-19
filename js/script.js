@@ -75,34 +75,115 @@ gallery.innerHTML = `
       // If data is a single object, wrap it in an array
       const images = Array.isArray(data) ? data : [data];
 
-      // Filter out items that are not images (sometimes APOD is a video)
-      const imageItems = images.filter(item => item.media_type === 'image');
+      // // Filter out items that are not images (sometimes APOD is a video)
+      // const imageItems = images.filter(item => item.media_type === 'image');
 
-      // If no images found, show a message
-      if (imageItems.length === 0) {
-        gallery.innerHTML = `
-          <div class="placeholder">
-            <div class="placeholder-icon">😢</div>
-            <p>No space images found for this date range.</p>
-          </div>
-        `;
-        return;
-      }
+      // // If no images found, show a message
+      // if (imageItems.length === 0) {
+      //   gallery.innerHTML = `
+      //     <div class="placeholder">
+      //       <div class="placeholder-icon">😢</div>
+      //       <p>No space images found for this date range.</p>
+      //     </div>
+      //   `;
+      //   return;
+      // }
 
-      // Display images in the gallery
-      gallery.innerHTML = '';
-      imageItems.forEach(item => {
-        // Create a gallery item with image, title, and date
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        div.innerHTML = `
-          <img src="${item.url}" alt="${item.title}" />
-          <p><strong>${item.title}</strong> (${item.date})</p>
-        `;
-        // When clicked, open modal with details
-        div.addEventListener('click', () => openModal(item));
-        gallery.appendChild(div);
-      });
+      // // Display images in the gallery
+      // gallery.innerHTML = '';
+      // imageItems.forEach(item => {
+      //   // Create a gallery item with image, title, and date
+      //   const div = document.createElement('div');
+      //   div.className = 'gallery-item';
+      //   div.innerHTML = `
+      //     <img src="${item.url}" alt="${item.title}" />
+      //     <p><strong>${item.title}</strong> (${item.date})</p>
+      //   `;
+      //   // When clicked, open modal with details
+      //   div.addEventListener('click', () => openModal(item));
+      //   gallery.appendChild(div);
+      // });
+
+
+
+
+
+
+
+
+
+      // If no data returned
+// if (!Array.isArray(data) || data.length === 0) {
+//   gallery.innerHTML = `
+//     <div class="placeholder">
+//       <div class="placeholder-icon">😢</div>
+//       <p>No space media found for this date range.</p>
+//     </div>
+//   `;
+//   return;
+// }
+
+// // Display all media items: images and videos
+// gallery.innerHTML = '';
+// data.forEach(item => {
+//   const div = document.createElement('div');
+//   div.className = 'gallery-item';
+
+//   if (item.media_type === 'image') {
+//     div.innerHTML = `
+//       <img src="${item.url}" alt="${item.title}" />
+//       <p><strong>${item.title}</strong> (${item.date})</p>
+//     `;
+//     div.addEventListener('click', () => openModal(item));
+//   } else if (item.media_type === 'video') {
+//     div.innerHTML = `
+//       <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: #f0f0f0; border-radius: 4px;">
+//         <a href="${item.url}" target="_blank" style="text-align: center; font-size: 16px; font-weight: bold; color: #0033A0;">▶️ Watch Video</a>
+//       </div>
+//       <p><strong>${item.title}</strong> (${item.date})</p>
+//     `;
+//   }
+
+//   gallery.appendChild(div);
+// });
+
+
+
+
+// If no data returned
+if (!Array.isArray(data) || data.length === 0) {
+  gallery.innerHTML = `
+    <div class="placeholder">
+      <div class="placeholder-icon">😢</div>
+      <p>No space media found for this date range.</p>
+    </div>
+  `;
+  return;
+}
+
+// Display all media items: images and videos
+gallery.innerHTML = '';
+data.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'gallery-item';
+
+  if (item.media_type === 'image') {
+    div.innerHTML = `
+      <img src="${item.url}" alt="${item.title}" />
+      <p><strong>${item.title}</strong> (${item.date})</p>
+    `;
+    div.addEventListener('click', () => openModal(item));
+  } else if (item.media_type === 'video') {
+    div.innerHTML = `
+      <p><strong>${item.title}</strong> (${item.date})</p>
+      <p><a href="${item.url}" target="_blank" style="font-size: 16px; color: #0033A0; text-decoration: underline;">▶️ Click here to watch the video</a></p>
+    `;
+  }
+
+  gallery.appendChild(div);
+});
+
+
     })
     .catch(error => {
       // Show error message if something goes wrong
