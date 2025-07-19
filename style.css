@@ -1,3 +1,4 @@
+
 /* Global reset & box sizing */
 * {
   box-sizing: border-box;
@@ -128,7 +129,7 @@ button:hover {
 
 /* Gallery items */
 .gallery-item {
-  flex: 1 1 100%;  /* full width by default */
+  flex: 1 1 100%;
   min-width: 280px;
   max-width: 500px;
   background: var(--nasa-white);
@@ -148,12 +149,26 @@ button:hover {
   }
 }
 
+/* .gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+} */
+
+
 .gallery-item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  transition: transform 0.3s ease;
 }
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
 
 .gallery-item p {
   margin-top: 10px;
@@ -167,11 +182,29 @@ button:hover {
   text-align: center;
   padding: 40px;
   color: var(--nasa-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+.placeholder-text {
+  font-size: 18px;
+  color: var(--nasa-blue);
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.placeholder p {
+  font-size: 18px;
+  color: var(--nasa-blue);
+  margin-top: 10px;
 }
 
 /* Modal overlay */
@@ -236,3 +269,264 @@ button:hover {
   color: var(--nasa-black);
   margin-bottom: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Workinng*/
+
+
+
+/* 
+* { 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --nasa-blue: #0033A0;
+  --nasa-red: #FC3D21;
+  --nasa-white: #fff;
+  --nasa-black: #212121;
+}
+
+
+body {
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  background-color: var(--nasa-white);
+  color: var(--nasa-black);
+  padding: 20px;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--nasa-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,51,160,0.08);
+}
+
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 6px solid var(--nasa-red); 
+  background: var(--nasa-blue);
+  border-radius: 10px 10px 0 0;
+}
+
+h1 {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: var(--nasa-white);
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+}
+
+
+.logo {
+  width: 140px;
+  margin-right: 15px;
+  background: var(--nasa-white);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+
+input[type="date"] {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: var(--nasa-black);
+  padding: 10px 15px;
+  border: 2px solid var(--nasa-blue);
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+  background: var(--nasa-white);
+}
+
+button {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: var(--nasa-white);
+  background-color: var(--nasa-red);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(252,61,33,0.08);
+  transition: background 0.2s;
+}
+button:hover {
+  background-color: #d32f2f;
+}
+
+
+@media (min-width: 600px) {
+  .filters {
+    flex-direction: row;
+    padding: 0;
+  }
+  
+  input[type="date"],
+  button {
+    width: auto;
+  }
+}
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  background: var(--nasa-blue);
+  border-radius: 0 0 10px 10px;
+}
+
+
+.gallery-item {
+  flex: 1 1 100%;  
+  min-width: 280px;
+  max-width: 500px;
+  background: var(--nasa-white);
+  padding: 10px;
+  border: 2px solid var(--nasa-blue);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,51,160,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media (min-width: 1000px) {
+  .gallery-item {
+    flex: 0 1 31%;
+  }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.gallery-item p {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+
+.placeholder {
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 40px;
+  color: var(--nasa-blue);
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,51,160,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.modal-content {
+  background: #fff;
+  border: 2px solid var(--nasa-red);
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90vw;
+  padding: 30px 20px 20px 20px;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+
+.modal-content img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 32px;
+  color: var(--nasa-red);
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.modal-close:hover {
+  color: #0033A0;
+}
+
+
+.modal-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  color: var(--nasa-blue);
+}
+.modal-content p {
+  font-size: 15px;
+  color: var(--nasa-black);
+  margin-bottom: 10px;
+} */

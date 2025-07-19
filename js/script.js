@@ -26,12 +26,17 @@ getImagesBtn.addEventListener('click', () => {
   const url = `${NASA_API_URL}?api_key=${API_KEY}&start_date=${startDate}&end_date=${endDate}`;
 
   // Show NASA-themed loading message
-  gallery.innerHTML = `
-    <div class="placeholder">
-      <div class="placeholder-icon">🔄</div>
-      <p>Loading space photos…</p>
-    </div>
-  `;
+  // gallery.innerHTML = `
+  //   <div class="placeholder">
+  //     <div class="placeholder-icon">🔄</div>
+  //     <p>Loading space photos…</p>
+  //   </div>
+  // `;
+gallery.innerHTML = `
+  🔄 Loading space photos…
+`;
+ 
+
 
   // Fetch images from NASA APOD API
   fetch(url)
