@@ -270,6 +270,20 @@ button:hover {
   margin-bottom: 10px;
 }
 
+/* Space fact section */
+.space-fact {
+  background-color: #f0f4ff;
+  border-left: 5px solid var(--nasa-blue);
+  padding: 15px 20px;
+  margin: 20px;
+  font-size: 16px;
+  color: var(--nasa-black);
+  font-style: italic;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 51, 160, 0.1);
+}
+
+
 
 
 

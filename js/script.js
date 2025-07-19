@@ -2,6 +2,36 @@
 const startInput = document.getElementById('startDate');
 const endInput = document.getElementById('endDate');
 
+//SPACE FACT LEVEL UP
+// Random space facts
+const spaceFacts = [
+  "Did you know? One day on Venus is longer than its entire year.",
+  "Did you know? Neutron stars can spin 600 times per second.",
+  "Did you know? The Sun accounts for 99.8% of the mass in our solar system.",
+  "Did you know? Space is completely silent—there’s no atmosphere to carry sound.",
+  "Did you know? Jupiter has 95 known moons as of 2025!",
+  "Did you know? A teaspoon of a neutron star would weigh about 6 billion tons.",
+  "Did you know? The footprints on the Moon will likely stay there for millions of years.",
+  "Did you know? Earth is the only planet not named after a god.",
+  "Did you know? There may be more stars in the universe than grains of sand on Earth.",
+  "Did you know? The largest known volcano in the solar system is Olympus Mons on Mars."
+];
+
+// Display a random fact
+function showRandomSpaceFact() {
+  const factEl = document.getElementById('spaceFact');
+  const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+  factEl.textContent = spaceFacts[randomIndex];
+}
+
+// Call this once when page loads
+showRandomSpaceFact();
+
+
+
+
+// Import the setupDateInputs function from dateRange.jss
+
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
 // - Default to a range of 9 days (from 9 days ago to today)
